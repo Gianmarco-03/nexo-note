@@ -1,0 +1,1 @@
+"""Appunti Vision backend package."""
