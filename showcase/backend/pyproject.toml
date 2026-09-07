@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "appunti-backend"
+version = "0.1.0"
+description = "Daemon HTTPS REST per Appunti Vision."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "email-validator>=2.2,<3",
+  "fastapi>=0.116,<1",
+  "PyJWT>=2.10,<3",
+  "pydantic-settings>=2.10,<3",
+  "pymysql>=1.1,<2",
+  "python-multipart>=0.0.20,<1",
+  "SQLAlchemy>=2.0,<3",
+  "uvicorn[standard]>=0.35,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1",
+  "pytest>=8.3,<9",
+  "ruff>=0.11,<1",
+]
+
+[project.scripts]
+appunti-backend = "appunti_backend.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["appunti_backend*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
